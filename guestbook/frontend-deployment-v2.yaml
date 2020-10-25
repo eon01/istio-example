@@ -1,7 +1,7 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
-  name: frontend-v1
+  name: frontend-v2
   labels:
     app: guestbook
 spec:
@@ -9,18 +9,18 @@ spec:
     matchLabels:
       app: guestbook
       tier: frontend
-      version: v1
+      version: v2
   replicas: 1
   template:
     metadata:
       labels:
         app: guestbook
         tier: frontend
-        version: v1
+        version: v2
     spec:
       containers:
       - name: php-redis
-        image: gcr.io/google-samples/gb-frontend:v4
+        image: wshihadeh/guestbook:v2
         resources:
           requests:
             cpu: 100m
