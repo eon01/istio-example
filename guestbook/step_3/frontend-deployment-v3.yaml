@@ -1,7 +1,7 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
-  name: frontend-v1
+  name: frontend-v3
   labels:
     app: guestbook
 spec:
@@ -9,14 +9,16 @@ spec:
     matchLabels:
       app: guestbook
       tier: frontend
-      version: v1
+      version: v3
+      cluster: v1
   replicas: 1
   template:
     metadata:
       labels:
         app: guestbook
         tier: frontend
-        version: v1
+        version: v3
+        cluster: v1
     spec:
       containers:
       - name: php-redis
